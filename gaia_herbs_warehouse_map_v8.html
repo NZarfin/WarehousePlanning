@@ -1,0 +1,577 @@
+<html>
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head></head><body><h2 class="sr-only">Interactive warehouse and fridge map for Gaia Herbs with drag-and-drop article assignment, slot moves and swaps</h2>
+
+<style>
+  .wh-app { font-family: var(--font-sans); color: var(--color-text-primary); padding: 1rem 0; }
+
+  .wh-toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  .wh-toolbar input[type="text"], .wh-toolbar input[type="number"] { height: 34px; padding: 0 10px; font-size: 13px; }
+  .wh-toolbar input[type="text"] { flex: 1; min-width: 180px; }
+  .wh-toolbar input[type="number"] { width: 80px; }
+  .wh-toolbar button { height: 34px; font-size: 13px; padding: 0 14px; }
+  .wh-status { font-size: 12px; color: var(--color-text-tertiary); margin-left: auto; }
+
+  .wh-hint { font-size: 12px; color: var(--color-text-secondary); background: var(--color-background-info); padding: 8px 12px; border-radius: var(--border-radius-md); margin-bottom: 12px; }
+
+  .wh-layout { display: grid; grid-template-columns: 240px 1fr; gap: 14px; align-items: start; }
+
+  .wh-articles { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 14px; max-height: 920px; overflow-y: auto; position: sticky; top: 0; }
+  .wh-articles h3 { font-size: 12px; font-weight: 500; margin: 0 0 10px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+  .wh-art-search { width: 100%; height: 32px; padding: 0 10px; font-size: 13px; margin-bottom: 10px; box-sizing: border-box; }
+  .wh-article { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-bottom: 6px; font-size: 13px; cursor: grab; user-select: none; display: flex; justify-content: space-between; align-items: center; gap: 8px; transition: transform 0.08s, border-color 0.08s; }
+  .wh-article:hover { border-color: var(--color-border-info); transform: translateX(2px); }
+  .wh-article:active { cursor: grabbing; }
+  .wh-article.dragging { opacity: 0.35; }
+  .wh-article-name { font-weight: 500; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wh-article-qty { font-size: 11px; color: #0C447C; background: #E6F1FB; padding: 3px 7px; border-radius: 4px; font-weight: 500; }
+  .wh-article-del { background: transparent; border: none; color: var(--color-text-tertiary); cursor: pointer; font-size: 16px; padding: 0 2px; line-height: 1; }
+  .wh-article-del:hover { color: var(--color-text-danger); }
+  .wh-empty { font-size: 12px; color: var(--color-text-tertiary); padding: 8px 4px; text-align: center; }
+  .wh-counter { font-size: 11px; color: var(--color-text-tertiary); margin-top: 8px; padding-top: 8px; border-top: 0.5px solid var(--color-border-tertiary); }
+
+  .wh-trash { margin-top: 10px; padding: 14px 8px; border: 2px dashed var(--color-border-tertiary); border-radius: var(--border-radius-md); text-align: center; font-size: 12px; color: var(--color-text-tertiary); transition: all 0.1s; }
+  .wh-trash.wh-drag-over { border-color: #E24B4A; background: #FCEBEB; color: #791F1F; }
+
+  .wh-area { background: var(--color-background-tertiary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 18px; overflow-x: auto; margin-bottom: 18px; }
+  .wh-area-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 14px; display: flex; align-items: center; gap: 8px; }
+  .wh-area-title .wh-tag { font-size: 10px; font-weight: 500; padding: 3px 8px; border-radius: var(--border-radius-md); letter-spacing: 0.05em; text-transform: uppercase; }
+  .wh-tag-warehouse { background: #FAEEDA; color: #854F0B; }
+  .wh-tag-fridge { background: #E6F1FB; color: #0C447C; }
+
+  .wh-section-label { font-size: 10px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; font-weight: 500; }
+  .wh-compass { font-size: 9px; color: var(--color-text-tertiary); font-weight: 500; padding: 2px 6px; background: var(--color-background-secondary); border-radius: 3px; letter-spacing: 0.1em; }
+
+  /* ---------- Bay & sides ---------- */
+  .wh-row { display: flex; gap: 0; }
+  .wh-col { display: flex; flex-direction: column; gap: 0; }
+
+  .wh-bay { display: flex; flex-direction: column; min-width: 78px; flex: 1; background: var(--color-background-primary); border: 1px solid var(--color-border-secondary); }
+  .wh-row > .wh-bay + .wh-bay { border-left-width: 0; }
+  .wh-col > .wh-bay + .wh-bay { border-top-width: 0; }
+
+  .wh-bay-num { font-size: 12px; font-weight: 500; text-align: center; padding: 4px 2px; background: #2C2C2A; color: #F1EFE8; letter-spacing: 0.05em; }
+
+  .wh-bay-h .wh-side { padding: 8px 4px; min-height: 50px; }
+  .wh-bay-h .wh-side + .wh-side { border-top: 2px dashed var(--color-border-secondary); }
+
+  .wh-side { cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; position: relative; transition: background 0.1s, outline 0.1s; padding: 8px 4px; }
+
+  .wh-side-A { background: #FAEEDA; }
+  .wh-side-B { background: #E6F1FB; }
+  .wh-side-C { background: #F1EFE8; }
+  .wh-side-A:hover { background: #FAC775; }
+  .wh-side-B:hover { background: #B5D4F4; }
+  .wh-side-C:hover { background: #D3D1C7; }
+
+  .wh-side.wh-drag-over { outline: 3px solid var(--color-border-info); outline-offset: -3px; background: #B5D4F4 !important; }
+  .wh-side.wh-drag-swap { outline: 3px solid #BA7517; outline-offset: -3px; background: #FAC775 !important; }
+  .wh-side.wh-dragging-source { opacity: 0.4; }
+
+  .wh-side-label { font-size: 11px; font-weight: 500; position: absolute; top: 3px; left: 5px; }
+  .wh-side-A .wh-side-label { color: #854F0B; }
+  .wh-side-B .wh-side-label { color: #0C447C; }
+  .wh-side-C .wh-side-label { color: #444441; }
+
+  .wh-side-empty { font-size: 11px; color: var(--color-text-tertiary); opacity: 0.5; }
+
+  .wh-side.wh-filled { background: #97C459; cursor: grab; }
+  .wh-side.wh-filled:active { cursor: grabbing; }
+  .wh-side.wh-filled:hover { background: #639922; }
+  .wh-side.wh-filled .wh-side-label { color: #173404; }
+  .wh-side.wh-filled .wh-side-name { font-size: 12px; font-weight: 500; color: #173404; line-height: 1.25; word-break: break-word; text-align: center; padding: 0 4px; }
+  .wh-side.wh-filled .wh-side-qty { font-size: 10px; color: #27500A; font-weight: 500; background: rgba(255,255,255,0.5); padding: 1px 5px; border-radius: 3px; }
+
+  /* ---------- WAREHOUSE FLOOR PLAN ---------- */
+  .wh-house {
+    display: grid;
+    grid-template-areas:
+      "north-block  .          docks"
+      "row-678      .          docks"
+      "aisle-label  .          docks"
+      "row-12345    .          docks";
+    grid-template-columns: 1fr 30px 90px;
+    gap: 14px;
+    min-width: 760px;
+  }
+  .wh-house-north  { grid-area: north-block; }
+  .wh-house-678    { grid-area: row-678; }
+  .wh-house-aisle  { grid-area: aisle-label; }
+  .wh-house-12345  { grid-area: row-12345; }
+  .wh-house-docks  { grid-area: docks; }
+
+  /* The two facing rows: bays in the top row have B side closer to the aisle (bottom),
+     bays in the bottom row have B side closer to the aisle (top). To show "facing each other"
+     across the aisle, we stack the B-side at the inner edge for each row. */
+  .wh-bay-faces-down .wh-side { padding: 8px 4px; }
+  .wh-bay-faces-down .wh-side + .wh-side { border-top: 2px dashed var(--color-border-secondary); }
+
+  .wh-aisle-strip {
+    background: repeating-linear-gradient(45deg, var(--color-background-secondary) 0 8px, transparent 8px 16px);
+    border-top: 2px solid var(--color-border-secondary);
+    border-bottom: 2px solid var(--color-border-secondary);
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: var(--border-radius-md);
+  }
+
+  .wh-north-block { display: flex; gap: 16px; align-items: stretch; }
+  .wh-fridge-entry {
+    background: #FAEEDA;
+    border: 2px dashed #BA7517;
+    border-radius: var(--border-radius-md);
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    color: #4F2A02;
+    letter-spacing: 0.05em;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    min-width: 140px;
+  }
+  .wh-fridge-entry-arrows { font-size: 16px; }
+  .wh-pillar-inline { width: 26px; height: 26px; border-radius: 50%; background: #2C2C2A; color: #F1EFE8; font-size: 9px; display: inline-flex; align-items: center; justify-content: center; font-weight: 500; vertical-align: middle; margin-left: 8px; }
+
+  .wh-pd { background: #2C2C2A; color: #F1EFE8; border-radius: var(--border-radius-md); padding: 0 20px; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; letter-spacing: 0.1em; min-width: 60px; }
+  .wh-pd-row { display: flex; gap: 8px; align-items: stretch; }
+  .wh-pd-row > .wh-pd { flex-shrink: 0; }
+  .wh-pd-row > .wh-row { flex: 1; }
+
+  .wh-docks { display: flex; flex-direction: column; gap: 6px; }
+  .wh-dock { background: #534AB7; color: #EEEDFE; font-size: 11px; padding: 8px 6px; border-radius: var(--border-radius-md); text-align: center; font-weight: 500; letter-spacing: 0.05em; }
+  .wh-dock-marker { font-size: 9px; color: var(--color-text-tertiary); margin-top: 6px; text-align: center; font-style: italic; }
+
+  /* ---------- FRIDGE ---------- */
+  .wh-fridge-room { background: #F4F8FC; border: 2px solid #B5D4F4; border-radius: var(--border-radius-lg); padding: 20px 18px; position: relative; }
+  .wh-fridge-room::before { content: '❄ FRIDGE'; position: absolute; top: -10px; left: 16px; background: #E6F1FB; color: #0C447C; padding: 2px 10px; font-size: 10px; font-weight: 500; letter-spacing: 0.1em; border-radius: var(--border-radius-md); border: 1px solid #B5D4F4; }
+  .wh-fridge-grid {
+    display: grid;
+    grid-template-areas:
+      "topdoor topdoor topdoor"
+      "topwall topwall topwall"
+      "leftcol islands ."
+      "botdoor botdoor proddoor";
+    grid-template-columns: 130px 1fr auto;
+    gap: 14px;
+    min-width: 720px;
+  }
+  .wh-fridge-topdoor  { grid-area: topdoor; display: flex; justify-content: center; }
+  .wh-fridge-topwall  { grid-area: topwall; }
+  .wh-fridge-leftcol  { grid-area: leftcol; }
+  .wh-fridge-islands  { grid-area: islands; display: flex; gap: 8px; justify-content: center; }
+  .wh-fridge-botdoor  { grid-area: botdoor; display: flex; justify-content: center; padding-top: 4px; }
+  .wh-fridge-proddoor { grid-area: proddoor; padding-top: 4px; }
+  .wh-island { display: flex; flex-direction: column; }
+  .wh-bay-v { flex-direction: row; min-width: 110px; }
+  .wh-bay-v .wh-bay-num { writing-mode: vertical-rl; transform: rotate(180deg); padding: 8px 4px; min-width: 22px; }
+  .wh-bay-v .wh-sides { display: flex; flex: 1; }
+  .wh-bay-v .wh-side { flex: 1; min-height: 56px; min-width: 44px; }
+  .wh-bay-v .wh-side + .wh-side { border-left: 2px dashed var(--color-border-secondary); }
+  .wh-door { background: #FAC775; border: 1px solid #BA7517; border-radius: var(--border-radius-md); padding: 8px 16px; font-size: 11px; font-weight: 500; color: #4F2A02; text-align: center; min-width: 100px; line-height: 1.3; }
+  .wh-door-prod { background: #C0DD97; border-color: #639922; color: #173404; }
+  .wh-door-arrows { font-size: 14px; letter-spacing: 6px; display: block; margin-top: 2px; }
+
+  .wh-legend { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 0.5px solid var(--color-border-tertiary); flex-wrap: wrap; align-items: center; }
+  .wh-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--color-text-secondary); }
+  .wh-swatch { width: 14px; height: 14px; border-radius: 3px; border: 0.5px solid var(--color-border-tertiary); }
+
+  .wh-modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; }
+  .wh-modal { background: var(--color-background-primary); border-radius: var(--border-radius-lg); padding: 24px; min-width: 320px; max-width: 400px; border: 0.5px solid var(--color-border-tertiary); }
+  .wh-modal h3 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
+  .wh-modal .wh-modal-sub { font-size: 12px; color: var(--color-text-tertiary); margin-bottom: 16px; }
+  .wh-modal label { display: block; font-size: 12px; color: var(--color-text-secondary); margin: 10px 0 4px; }
+  .wh-modal input { width: 100%; height: 34px; padding: 0 10px; font-size: 13px; box-sizing: border-box; }
+  .wh-modal-actions { display: flex; gap: 8px; margin-top: 18px; justify-content: flex-end; flex-wrap: wrap; }
+  .wh-modal-actions button { height: 34px; padding: 0 14px; font-size: 13px; }
+  .wh-modal-actions .wh-btn-danger { color: #791F1F; border-color: #F09595; }
+  .wh-modal-actions .wh-btn-primary { background: #534AB7; color: #EEEDFE; border-color: #534AB7; }
+</style>
+
+<div class="wh-app">
+  <div class="wh-toolbar">
+    <input type="text" id="wh-art-name" placeholder="Article name (e.g. Basil 100g)">
+    <input type="number" id="wh-art-qty" placeholder="Qty" min="0">
+    <button id="wh-art-add">+ Add article</button>
+    <button id="wh-export">Export CSV</button>
+    <span class="wh-status" id="wh-status">Loading…</span>
+  </div>
+
+  <div class="wh-hint">
+    <strong>Tip:</strong> Drag articles onto slots · Drag a filled slot onto another to <strong>move</strong> · Drop onto a filled slot to <strong>swap</strong> · Drop onto trash to clear · Click a slot to edit
+  </div>
+
+  <div class="wh-layout">
+    <div class="wh-articles">
+      <h3>Articles</h3>
+      <input type="text" class="wh-art-search" id="wh-art-search" placeholder="Search…">
+      <div id="wh-art-list"></div>
+      <div class="wh-counter" id="wh-counter"></div>
+      <div class="wh-trash" id="wh-trash">🗑 Drop slot here to clear</div>
+    </div>
+
+    <div>
+      <!-- ======= WAREHOUSE ======= -->
+      <div class="wh-area">
+        <div class="wh-area-title">
+          Warehouse
+          <span class="wh-tag wh-tag-warehouse">view: standing at Dock 5 looking north ↑</span>
+        </div>
+
+        <div class="wh-house">
+          <!-- North block: fridge entry + bays 9, 10 -->
+          <div class="wh-house-north">
+            <div class="wh-section-label"><span class="wh-compass">N · north end</span> · fridge entrance + bays 9, 10 <span class="wh-pillar-inline" title="Pillar">⬤</span></div>
+            <div class="wh-north-block">
+              <div class="wh-fridge-entry">
+                <span class="wh-fridge-entry-arrows">↑↓</span>
+                Fridge entrance
+              </div>
+              <div class="wh-row" id="wh-house-north-row" style="flex: 0 0 auto;"></div>
+            </div>
+          </div>
+
+          <!-- Top shelf row: bays 6, 7, 8 (faces aisle below) -->
+          <div class="wh-house-678">
+            <div class="wh-section-label"><span class="wh-compass">S row 1</span> · bays 6, 7, 8 (facing south to aisle)</div>
+            <div class="wh-row" id="wh-house-678-row"></div>
+          </div>
+
+          <!-- Aisle between the two facing rows -->
+          <div class="wh-house-aisle">
+            <div class="wh-aisle-strip">↕ aisle / floor space ↕</div>
+          </div>
+
+          <!-- Bottom shelf row: PD + bays 1, 2, 3, 4, 5 reversed (5 left, 1 right, PD far right) -->
+          <div class="wh-house-12345">
+            <div class="wh-section-label"><span class="wh-compass">S row 2</span> · bays 5, 4, 3, 2, 1 + PD (facing north to aisle)</div>
+            <div class="wh-pd-row">
+              <div class="wh-row" id="wh-house-12345-row" style="flex: 1;"></div>
+              <div class="wh-pd">PD</div>
+            </div>
+          </div>
+
+          <!-- Docks east wall -->
+          <div class="wh-house-docks">
+            <div class="wh-section-label"><span class="wh-compass">E wall</span></div>
+            <div class="wh-docks">
+              <div class="wh-dock">DOCK 1</div>
+              <div class="wh-dock">DOCK 2</div>
+              <div class="wh-dock">DOCK 3</div>
+              <div class="wh-dock">DOCK 4</div>
+              <div class="wh-dock">DOCK 5</div>
+            </div>
+            <div class="wh-dock-marker">↑ you stand here</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= FRIDGE ======= -->
+      <div class="wh-area">
+        <div class="wh-area-title">Fridge <span class="wh-tag wh-tag-fridge">cold storage</span></div>
+
+        <div class="wh-fridge-room">
+          <div class="wh-fridge-grid">
+            <div class="wh-fridge-topdoor">
+              <div class="wh-door" title="Door from warehouse (top)">Door · from warehouse<span class="wh-door-arrows">↑↓</span></div>
+            </div>
+            <div class="wh-fridge-topwall">
+              <div class="wh-section-label">Top wall · bays 33–37</div>
+              <div class="wh-row" id="wh-fridge-top"></div>
+            </div>
+            <div class="wh-fridge-leftcol">
+              <div class="wh-section-label">Left column · bays 38–40 / 20–23</div>
+              <div class="wh-col" id="wh-fridge-left"></div>
+            </div>
+            <div class="wh-fridge-islands">
+              <div class="wh-island">
+                <div class="wh-section-label">Island A · bays 25–28</div>
+                <div class="wh-col" id="wh-fridge-island-1"></div>
+              </div>
+              <div class="wh-island">
+                <div class="wh-section-label">Island B · bays 29–32</div>
+                <div class="wh-col" id="wh-fridge-island-2"></div>
+              </div>
+            </div>
+            <div class="wh-fridge-botdoor">
+              <div class="wh-door" title="Door to warehouse (bottom)">Door · to warehouse<span class="wh-door-arrows">↑↓</span></div>
+            </div>
+            <div class="wh-fridge-proddoor">
+              <div class="wh-door wh-door-prod" title="Door to production">→ Production</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wh-legend">
+          <div class="wh-legend-item"><span class="wh-swatch" style="background: #FAEEDA;"></span>Side A</div>
+          <div class="wh-legend-item"><span class="wh-swatch" style="background: #E6F1FB;"></span>Side B</div>
+          <div class="wh-legend-item"><span class="wh-swatch" style="background: #F1EFE8;"></span>Side C</div>
+          <div class="wh-legend-item"><span class="wh-swatch" style="background: #97C459;"></span>Filled</div>
+          <div class="wh-legend-item"><span class="wh-swatch" style="background: #FAC775;"></span>Will swap</div>
+        </div>
+      </div>
+
+      <div id="wh-modal-host"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const STORAGE_KEY_ARTICLES = 'gaia-wh-articles';
+  const STORAGE_KEY_ASSIGN   = 'gaia-wh-assignments';
+
+  // WAREHOUSE
+  const houseNorth   = [9, 10].map(n => ({ num: n, sides: ['A','B'] }));
+  const house678     = [6, 7, 8].map(n => ({ num: n, sides: ['A','B'] }));
+  const house12345   = [5, 4, 3, 2, 1].map(n => ({ num: n, sides: ['A','B'] }));
+
+  // FRIDGE
+  const fridgeTop      = [33, 34, 35, 36, 37].map(n => ({ num: n, sides: (n>=33 && n<=35) ? ['A','B','C'] : ['A','B'] }));
+  const fridgeLeftCol  = [38, 39, 40, 20, 21, 22, 23].map(n => ({ num: n, sides: (n===22 || n===23) ? ['A','B','C'] : ['A','B'] }));
+  const fridgeIsland1  = [28, 27, 26, 25].map(n => ({ num: n, sides: ['A','B'] }));
+  const fridgeIsland2  = [32, 31, 30, 29].map(n => ({ num: n, sides: ['A','B'] }));
+
+  let articles = [];
+  let assignments = {};
+  let dragState = null;
+  let searchFilter = '';
+  const status = document.getElementById('wh-status');
+
+  async function loadAll() {
+    try {
+      status.textContent = 'Loading shared data…';
+      const [a, asg] = await Promise.all([
+        window.storage.get(STORAGE_KEY_ARTICLES, true).catch(() => null),
+        window.storage.get(STORAGE_KEY_ASSIGN, true).catch(() => null),
+      ]);
+      if (a && a.value) articles = JSON.parse(a.value);
+      if (asg && asg.value) assignments = JSON.parse(asg.value);
+      status.textContent = '✓ Synced';
+    } catch (e) { status.textContent = 'Local only'; }
+    renderArticles(); renderAll();
+  }
+  async function saveArticles()    { try { await window.storage.set(STORAGE_KEY_ARTICLES, JSON.stringify(articles), true); status.textContent = '✓ Saved'; } catch(e) { status.textContent = 'Save failed'; } }
+  async function saveAssignments() { try { await window.storage.set(STORAGE_KEY_ASSIGN, JSON.stringify(assignments), true); status.textContent = '✓ Saved'; } catch(e) { status.textContent = 'Save failed'; } }
+
+  function renderArticles() {
+    const host = document.getElementById('wh-art-list');
+    host.innerHTML = '';
+    const filtered = articles.filter(a => !searchFilter || a.name.toLowerCase().includes(searchFilter.toLowerCase()));
+    if (filtered.length === 0) {
+      host.innerHTML = '<div class="wh-empty">' + (articles.length === 0 ? 'No articles yet.<br>Add one above.' : 'No matches.') + '</div>';
+    } else {
+      filtered.forEach(a => {
+        const div = document.createElement('div');
+        div.className = 'wh-article'; div.draggable = true; div.dataset.id = a.id;
+        div.innerHTML = '<span class="wh-article-name" title="' + escapeHtml(a.name) + '">' + escapeHtml(a.name) + '</span>' +
+          '<span class="wh-article-qty">' + (a.qty || 0) + '</span>' +
+          '<button class="wh-article-del" title="Delete article">×</button>';
+        div.addEventListener('dragstart', e => {
+          dragState = { kind: 'article', articleId: a.id };
+          div.classList.add('dragging');
+          e.dataTransfer.effectAllowed = 'copy';
+          try { e.dataTransfer.setData('text/plain', 'art:' + a.id); } catch(_) {}
+        });
+        div.addEventListener('dragend', () => { div.classList.remove('dragging'); dragState = null; clearAllHover(); });
+        div.querySelector('.wh-article-del').addEventListener('click', e => {
+          e.stopPropagation();
+          if (!confirm('Delete "' + a.name + '" from article list?')) return;
+          articles = articles.filter(x => x.id !== a.id);
+          saveArticles(); renderArticles();
+        });
+        host.appendChild(div);
+      });
+    }
+    document.getElementById('wh-counter').textContent = articles.length + ' article(s) · ' + Object.keys(assignments).length + ' slot(s) filled';
+  }
+
+  const trashEl = document.getElementById('wh-trash');
+  trashEl.addEventListener('dragover', ev => { if (dragState && dragState.kind === 'slot') { ev.preventDefault(); trashEl.classList.add('wh-drag-over'); } });
+  trashEl.addEventListener('dragleave', () => trashEl.classList.remove('wh-drag-over'));
+  trashEl.addEventListener('drop', ev => {
+    ev.preventDefault(); trashEl.classList.remove('wh-drag-over');
+    if (dragState && dragState.kind === 'slot') {
+      delete assignments[dragState.sourceKey];
+      saveAssignments(); renderArticles(); renderAll();
+    }
+  });
+
+  document.getElementById('wh-art-add').addEventListener('click', addArticle);
+  document.getElementById('wh-art-name').addEventListener('keydown', e => { if (e.key === 'Enter') addArticle(); });
+  document.getElementById('wh-art-qty').addEventListener('keydown', e => { if (e.key === 'Enter') addArticle(); });
+  document.getElementById('wh-art-search').addEventListener('input', e => { searchFilter = e.target.value; renderArticles(); });
+
+  function addArticle() {
+    const nameEl = document.getElementById('wh-art-name');
+    const qtyEl  = document.getElementById('wh-art-qty');
+    const name = nameEl.value.trim();
+    const qty  = parseInt(qtyEl.value, 10) || 0;
+    if (!name) return;
+    articles.push({ id: 'a' + Date.now() + Math.random().toString(36).slice(2,6), name, qty });
+    nameEl.value = ''; qtyEl.value = ''; nameEl.focus();
+    saveArticles(); renderArticles();
+  }
+
+  function renderAll() { renderHouse(); renderFridge(); }
+
+  function renderHouse() {
+    fillRow('wh-house-north-row',  houseNorth,   'W', 'h');
+    fillRow('wh-house-678-row',    house678,     'W', 'h');
+    fillRow('wh-house-12345-row',  house12345,   'W', 'h');
+  }
+  function renderFridge() {
+    fillRow('wh-fridge-top',      fridgeTop,     'F', 'h');
+    fillCol('wh-fridge-left',     fridgeLeftCol, 'F', 'v');
+    fillCol('wh-fridge-island-1', fridgeIsland1, 'F', 'v');
+    fillCol('wh-fridge-island-2', fridgeIsland2, 'F', 'v');
+  }
+
+  function fillRow(id, bays, prefix, orient) { const el = document.getElementById(id); el.innerHTML = ''; bays.forEach(b => el.appendChild(buildBay(b, prefix, orient))); }
+  function fillCol(id, bays, prefix, orient) { const el = document.getElementById(id); el.innerHTML = ''; bays.forEach(b => el.appendChild(buildBay(b, prefix, orient))); }
+
+  function buildBay(bay, prefix, orient) {
+    const el = document.createElement('div');
+    el.className = 'wh-bay ' + (orient === 'v' ? 'wh-bay-v' : 'wh-bay-h');
+    const num = document.createElement('div');
+    num.className = 'wh-bay-num';
+    num.textContent = bay.num;
+    el.appendChild(num);
+    if (orient === 'v') {
+      const sidesWrap = document.createElement('div');
+      sidesWrap.className = 'wh-sides';
+      bay.sides.forEach(side => sidesWrap.appendChild(buildSide(bay.num, side, prefix)));
+      el.appendChild(sidesWrap);
+    } else {
+      bay.sides.forEach(side => el.appendChild(buildSide(bay.num, side, prefix)));
+    }
+    return el;
+  }
+
+  function buildSide(bayNum, side, prefix) {
+    const key = prefix + bayNum + '-' + side;
+    const displayLabel = bayNum + side;
+    const el = document.createElement('div');
+    el.className = 'wh-side wh-side-' + side;
+    el.dataset.key = key;
+    const lbl = document.createElement('span');
+    lbl.className = 'wh-side-label'; lbl.textContent = side;
+    el.appendChild(lbl);
+    const a = assignments[key];
+    if (a) {
+      el.classList.add('wh-filled'); el.draggable = true;
+      el.title = 'Drag to move · Drop onto another filled slot to swap · Click to edit';
+      const n = document.createElement('div'); n.className = 'wh-side-name'; n.textContent = a.name; el.appendChild(n);
+      const q = document.createElement('div'); q.className = 'wh-side-qty';  q.textContent = (a.qty || 0); el.appendChild(q);
+      el.addEventListener('dragstart', ev => {
+        dragState = { kind: 'slot', sourceKey: key };
+        el.classList.add('wh-dragging-source');
+        ev.dataTransfer.effectAllowed = 'move';
+        try { ev.dataTransfer.setData('text/plain', 'slot:' + key); } catch(_) {}
+      });
+      el.addEventListener('dragend', () => { el.classList.remove('wh-dragging-source'); dragState = null; clearAllHover(); });
+    } else {
+      const e = document.createElement('div'); e.className = 'wh-side-empty'; e.textContent = displayLabel; el.appendChild(e);
+    }
+    el.addEventListener('dragover', ev => {
+      if (!dragState) return;
+      if (dragState.kind === 'slot' && dragState.sourceKey === key) return;
+      ev.preventDefault();
+      if (dragState.kind === 'slot' && assignments[key]) el.classList.add('wh-drag-swap');
+      else el.classList.add('wh-drag-over');
+    });
+    el.addEventListener('dragleave', () => { el.classList.remove('wh-drag-over'); el.classList.remove('wh-drag-swap'); });
+    el.addEventListener('drop', ev => {
+      ev.preventDefault(); el.classList.remove('wh-drag-over'); el.classList.remove('wh-drag-swap');
+      if (!dragState) return;
+      if (dragState.kind === 'article') {
+        const art = articles.find(x => x.id === dragState.articleId);
+        if (!art) return;
+        if (assignments[key] && !confirm('Slot ' + displayLabel + ' already holds "' + assignments[key].name + '". Replace with "' + art.name + '"?')) return;
+        assignments[key] = { articleId: art.id, name: art.name, qty: art.qty };
+      } else if (dragState.kind === 'slot') {
+        const src = dragState.sourceKey;
+        if (src === key) return;
+        const srcData = assignments[src]; const dstData = assignments[key];
+        if (!srcData) return;
+        if (dstData) { assignments[key] = srcData; assignments[src] = dstData; }
+        else         { assignments[key] = srcData; delete assignments[src]; }
+      }
+      saveAssignments(); renderArticles(); renderAll();
+    });
+    el.addEventListener('click', () => openSlotModal(key, displayLabel, prefix));
+    return el;
+  }
+
+  function clearAllHover() {
+    document.querySelectorAll('.wh-drag-over, .wh-drag-swap').forEach(n => { n.classList.remove('wh-drag-over'); n.classList.remove('wh-drag-swap'); });
+  }
+
+  function openSlotModal(key, displayLabel, prefix) {
+    const host = document.getElementById('wh-modal-host');
+    const a = assignments[key];
+    const area = prefix === 'F' ? 'Fridge' : 'Warehouse';
+    const m = displayLabel.match(/^(\d+)([A-C])$/);
+    const bayPart = m ? m[1] : displayLabel; const side = m ? m[2] : '';
+    host.innerHTML =
+      '<div class="wh-modal-bg">' +
+        '<div class="wh-modal">' +
+          '<h3>' + area + ' · Bay ' + bayPart + ' · Side ' + side + '</h3>' +
+          '<div class="wh-modal-sub">' + (a ? 'Edit assigned article' : 'Assign an article to this slot') + '</div>' +
+          '<label>Article name</label>' +
+          '<input type="text" id="wh-m-name" value="' + (a ? escapeAttr(a.name) : '') + '" placeholder="e.g. Basil 100g" />' +
+          '<label>Quantity</label>' +
+          '<input type="number" id="wh-m-qty" value="' + (a ? (a.qty || 0) : '') + '" min="0" />' +
+          '<div class="wh-modal-actions">' +
+            (a ? '<button id="wh-m-clear" class="wh-btn-danger">Clear slot</button>' : '') +
+            '<button id="wh-m-cancel">Cancel</button>' +
+            '<button id="wh-m-save" class="wh-btn-primary">Save</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    const close = () => host.innerHTML = '';
+    document.getElementById('wh-m-cancel').onclick = close;
+    document.getElementById('wh-m-save').onclick = () => {
+      const name = document.getElementById('wh-m-name').value.trim();
+      const qty  = parseInt(document.getElementById('wh-m-qty').value, 10) || 0;
+      if (!name) { close(); return; }
+      assignments[key] = { articleId: (a && a.articleId) || null, name, qty };
+      saveAssignments(); renderArticles(); renderAll(); close();
+    };
+    if (a) document.getElementById('wh-m-clear').onclick = () => { delete assignments[key]; saveAssignments(); renderArticles(); renderAll(); close(); };
+    setTimeout(() => document.getElementById('wh-m-name').focus(), 50);
+  }
+
+  document.getElementById('wh-export').addEventListener('click', () => {
+    const rows = [['Slot','Area','Bay','Side','Article','Qty']];
+    Object.keys(assignments).sort().forEach(k => {
+      const m = k.match(/^([WF])(\d+)-([A-C])$/); if (!m) return;
+      const [_, prefix, bay, side] = m;
+      rows.push([k, prefix === 'F' ? 'Fridge' : 'Warehouse', bay, side, assignments[k].name, assignments[k].qty || 0]);
+    });
+    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'warehouse-map-' + new Date().toISOString().slice(0,10) + '.csv';
+    a.click(); URL.revokeObjectURL(url);
+  });
+
+  function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function escapeAttr(s) { return escapeHtml(s); }
+
+  loadAll();
+})();
+</script></body></html>
